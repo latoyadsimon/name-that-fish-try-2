@@ -43,6 +43,7 @@ export function FunctionalApp() {
         userInput={userInput}
         correctAnswer={correctAnswer}
         incorrectAnswer={incorrectAnswer}
+        fishArray={fishArray}
       />
       {/* <FunctionalGameBoard /> */}
       <FunctionalGameBoard

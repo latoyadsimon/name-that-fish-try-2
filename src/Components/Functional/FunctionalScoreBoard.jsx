@@ -5,12 +5,17 @@ import "./styles/score-board.css";
 // let correctCount = 0;
 // const incorrectCount = 0;
 // const correctCount = 0;
-const answersLeft = ["trout", "salmon", "tuna", "shark"];
+// const answersLeft = ["trout", "salmon", "tuna", "shark"];
+
+// const changeAnswersLeft = () => {
+
+// }
 
 export function FunctionalScoreBoard({
   //   userInput,
   correctAnswer,
   incorrectAnswer,
+  fishArray,
   //   view,
   //   setView,
 }) {
@@ -20,6 +25,7 @@ export function FunctionalScoreBoard({
   //   console.log("this is userInput: ", userInput);
   const incorrectCount = incorrectAnswer;
   const correctCount = correctAnswer;
+  const answersLeft = fishArray.map((fish) => fish.name);
 
   //   const initialFishes = fishArray;
 
