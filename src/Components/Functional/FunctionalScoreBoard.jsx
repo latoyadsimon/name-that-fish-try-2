@@ -16,7 +16,7 @@ export function FunctionalScoreBoard({
   correctAnswer,
   incorrectAnswer,
   fishArray,
-  //   view,
+  view,
   //   setView,
 }) {
   //   console.log("this is carried over:", correctAnswer, userInput);
@@ -26,6 +26,8 @@ export function FunctionalScoreBoard({
   const incorrectCount = incorrectAnswer;
   const correctCount = correctAnswer;
   const answersLeft = fishArray.map((fish) => fish.name);
+  // const getView = view;
+  // console.log("this is getView:", getView);
 
   //   const initialFishes = fishArray;
 
@@ -41,17 +43,19 @@ export function FunctionalScoreBoard({
   //     }
   //   };
 
-  return (
-    <div id="score-board">
-      <div>Incorrect 🔻: {incorrectCount}</div>
-      <div id="choices-left">
-        {answersLeft.map((answer) => (
-          <div key={answer} className="choice">
-            {answer}
-          </div>
-        ))}
+  if (view === false) {
+    return (
+      <div id="score-board">
+        <div>Incorrect 🔻: {incorrectCount}</div>
+        <div id="choices-left">
+          {answersLeft.map((answer) => (
+            <div key={answer} className="choice">
+              {answer}
+            </div>
+          ))}
+        </div>
+        <div>Correct ✅: {correctCount}</div>
       </div>
-      <div>Correct ✅: {correctCount}</div>
-    </div>
-  );
+    );
+  }
 }

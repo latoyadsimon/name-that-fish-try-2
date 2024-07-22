@@ -44,6 +44,7 @@ export function FunctionalApp() {
         correctAnswer={correctAnswer}
         incorrectAnswer={incorrectAnswer}
         fishArray={fishArray}
+        view={view}
       />
       {/* <FunctionalGameBoard /> */}
       <FunctionalGameBoard

@@ -75,24 +75,26 @@ export function FunctionalGameBoard({
     setUserInput("");
   };
 
-  return (
-    <div id="game-board">
-      <div id="fish-container">
-        <img src={nextFishToName.url} alt={nextFishToName.name} />
+  if (view === false) {
+    return (
+      <div id="game-board">
+        <div id="fish-container">
+          <img src={nextFishToName.url} alt={nextFishToName.name} />
+        </div>
+        <form id="fish-guess-form" onSubmit={onSubmit}>
+          <label htmlFor="fish-guess">What kind of fish is this?</label>
+          <input
+            type="text"
+            name="fish-guess"
+            value={userInput}
+            onChange={(e) => {
+              setUserInput(e.target.value);
+              // console.log("this is userInput:", userInput);
+            }}
+          />
+          <input type="submit" />
+        </form>
       </div>
-      <form id="fish-guess-form" onSubmit={onSubmit}>
-        <label htmlFor="fish-guess">What kind of fish is this?</label>
-        <input
-          type="text"
-          name="fish-guess"
-          value={userInput}
-          onChange={(e) => {
-            setUserInput(e.target.value);
-            // console.log("this is userInput:", userInput);
-          }}
-        />
-        <input type="submit" />
-      </form>
-    </div>
-  );
+    );
+  }
 }
