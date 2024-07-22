@@ -46,12 +46,15 @@ export function FunctionalGameBoard({
     console.log(userInput === nextFishToName.name ? "correct!" : "incorrect!");
     console.log("this is correctAnswer: ", correctAnswer);
     console.log("this is incorrectAnswer: ", incorrectAnswer);
-    if (fishArray.length > 0) {
+    if (fishArray.length > 1) {
       //   guessedFishes = fishArray.shift();
       //   console.log("this is how many guessed: ", guessedFishes);
       //   console.log("this is view now: ", view);
-      fishArray.shift();
-      setFishArray(fishArray);
+      // fishArray.shift();
+      // setFishArray(fishArray);
+      let newArray = fishArray.filter((fish) => fish !== nextFishToName);
+      console.log("this is the new array:", newArray);
+      setFishArray(newArray);
     } else {
       setView(true);
       console.log("this is view now: ", view);

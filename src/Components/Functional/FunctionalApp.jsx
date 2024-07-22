@@ -32,7 +32,10 @@ export function FunctionalApp() {
   const [incorrectAnswer, setIncorrectAnswer] = useState(0);
   const [view, setView] = useState(false);
 
-  //   console.log("here is view ", view);
+  let allFishes = initialFishes.length;
+  console.log("this is how many fish are in the array: ", allFishes);
+
+  console.log("here is view ", view);
 
   return (
     <>
@@ -57,10 +60,11 @@ export function FunctionalApp() {
         //     setUserInput(userInput)
         // }}
       />
-      {{ view } && (
+      {view && (
         <FunctionalFinalScore
           correctAnswer={correctAnswer}
           incorrectAnswer={incorrectAnswer}
+          allFishes={allFishes}
         />
       )}
     </>
