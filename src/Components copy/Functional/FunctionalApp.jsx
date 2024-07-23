@@ -4,6 +4,8 @@ import { FunctionalFinalScore } from "./FunctionalFinalScore";
 import { useState } from "react";
 import { Images } from "../../assets/Images";
 
+//state here: correct, incorrect, initialFishes
+
 const initialFishes = [
   {
     name: "trout",
@@ -31,6 +33,9 @@ export function FunctionalApp() {
   const [view, setView] = useState(false);
 
   let allFishes = initialFishes.length;
+  console.log("this is how many fish are in the array: ", allFishes);
+
+  console.log("here is view ", view);
 
   return (
     <>
@@ -41,6 +46,7 @@ export function FunctionalApp() {
         fishArray={fishArray}
         view={view}
       />
+      {/* <FunctionalGameBoard /> */}
       <FunctionalGameBoard
         userInput={userInput}
         setUserInput={setUserInput}
@@ -52,10 +58,14 @@ export function FunctionalApp() {
         setIncorrectAnswer={setIncorrectAnswer}
         view={view}
         setView={setView}
+        // handleUserInformation = {(userInput) => {
+        //     setUserInput(userInput)
+        // }}
       />
       {view && (
         <FunctionalFinalScore
           correctAnswer={correctAnswer}
+          incorrectAnswer={incorrectAnswer}
           allFishes={allFishes}
         />
       )}

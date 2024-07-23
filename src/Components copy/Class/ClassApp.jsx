@@ -2,6 +2,7 @@ import { Component } from "react";
 import { ClassScoreBoard } from "./ClassScoreBoard";
 import { ClassGameBoard } from "./ClassGameBoard";
 import { ClassFinalScore } from "./ClassFinalScore";
+// import { Images } from "../../assets/Images";
 import { Images } from "../../assets/Images";
 
 const initialFishes = [
