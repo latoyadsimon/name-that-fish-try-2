@@ -28,17 +28,14 @@ export function FunctionalApp() {
   const [fishArray, setFishArray] = useState(initialFishes);
   const [correctAnswer, setCorrectAnswer] = useState(0);
   const [incorrectAnswer, setIncorrectAnswer] = useState(0);
+  const [view, setView] = useState(false);
 
-  const totalFishes = initialFishes.length;
-  let view = false;
-
-  if (correctAnswer + incorrectAnswer >= totalFishes) {
-    view = true;
-  }
+  let allFishes = initialFishes.length;
 
   return (
     <>
       <FunctionalScoreBoard
+        userInput={userInput}
         correctAnswer={correctAnswer}
         incorrectAnswer={incorrectAnswer}
         fishArray={fishArray}
@@ -54,11 +51,12 @@ export function FunctionalApp() {
         incorrectAnswer={incorrectAnswer}
         setIncorrectAnswer={setIncorrectAnswer}
         view={view}
+        setView={setView}
       />
       {view && (
         <FunctionalFinalScore
           correctAnswer={correctAnswer}
-          totalFishes={totalFishes}
+          allFishes={allFishes}
         />
       )}
     </>

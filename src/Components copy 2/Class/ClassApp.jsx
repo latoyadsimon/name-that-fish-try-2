@@ -29,7 +29,10 @@ export class ClassApp extends Component {
     correctCount: 0,
     userInput: "",
     fishArray: initialFishes,
+    view: false,
   };
+
+  allFishes = initialFishes.length;
 
   // 1. Set up a function to set the state of **THIS** component
   setUserInput = (input) => {
@@ -44,23 +47,21 @@ export class ClassApp extends Component {
   setFishArray = (input) => {
     this.setState({ fishArray: input });
   };
+  setView = (input) => {
+    this.setState({ view: input });
+  };
 
   // 2. pass the function that we created in step 1 , to our children that need it
 
   render() {
-    const { incorrectCount, correctCount, userInput, fishArray } = this.state;
-
-    const totalFishes = initialFishes.length;
-    let view = false;
-
-    if (incorrectCount + correctCount >= totalFishes) {
-      view = true;
-    }
+    const { incorrectCount, correctCount, userInput, fishArray, view } =
+      this.state;
 
     return (
       <>
         <>
           <ClassScoreBoard
+            userInput={userInput}
             correctCount={correctCount}
             incorrectCount={incorrectCount}
             fishArray={fishArray}
@@ -76,12 +77,13 @@ export class ClassApp extends Component {
             fishArray={fishArray}
             setFishArray={this.setFishArray}
             view={view}
+            setView={this.setView}
           />
         </>
         {view && (
           <ClassFinalScore
             correctCount={correctCount}
-            totalFishes={totalFishes}
+            allFishes={this.allFishes}
           />
         )}
       </>

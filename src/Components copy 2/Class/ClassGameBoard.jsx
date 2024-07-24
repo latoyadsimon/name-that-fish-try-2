@@ -12,19 +12,22 @@ export class ClassGameBoard extends Component {
       setUserInput,
       setCorrectCount,
       setIncorrectCount,
+      setView,
       setFishArray,
     } = this.props;
 
     const nextFishToName = fishArray[0];
 
     const handleUserInput = () => {
-      userInput.toLowerCase() === nextFishToName.name
+      userInput === nextFishToName.name
         ? setCorrectCount(correctCount + 1)
         : setIncorrectCount(incorrectCount + 1);
 
       if (fishArray.length > 1) {
-        let newFishArray = fishArray.filter((fish) => fish !== nextFishToName);
-        setFishArray(newFishArray);
+        let newArray = fishArray.filter((fish) => fish !== nextFishToName);
+        setFishArray(newArray);
+      } else {
+        setView(true);
       }
     };
 

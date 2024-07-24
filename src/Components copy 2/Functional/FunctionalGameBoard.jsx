@@ -10,17 +10,22 @@ export function FunctionalGameBoard({
   incorrectAnswer,
   setIncorrectAnswer,
   view,
+  setView,
 }) {
-  const nextFishToName = fishArray[0];
+  let initialFishes = fishArray;
+
+  const nextFishToName = initialFishes[0];
 
   const handleUserInput = () => {
-    userInput.toLowerCase() === nextFishToName.name
+    userInput === nextFishToName.name
       ? setCorrectAnswer((correctAnswer = correctAnswer + 1))
       : setIncorrectAnswer((incorrectAnswer = incorrectAnswer + 1));
     if (fishArray.length > 1) {
-      const newFishArray = fishArray.filter((fish) => fish !== nextFishToName);
+      let newArray = fishArray.filter((fish) => fish !== nextFishToName);
 
-      setFishArray(newFishArray);
+      setFishArray(newArray);
+    } else {
+      setView(true);
     }
   };
 
