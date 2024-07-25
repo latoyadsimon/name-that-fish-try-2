@@ -1,0 +1,11 @@
+link to gitHub:
+https://github.com/latoyadsimon/name-that-fish-try-2.git
+
+notes to self:
+- project restarted on 06/28/24
+- functional and class component working on 07/22/24
+- why the gap? went back home to vegas on july 1st
+
+07/23/24
+-assignment graded, passed
+-corrections made
